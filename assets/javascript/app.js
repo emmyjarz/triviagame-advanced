@@ -1,17 +1,27 @@
-var question = ["What is the most common training command taught to dogs?", 
-				"Puppies are delivered how many weeks after conception?",
-				"What is the most popular dog breed, according to the American Kennel Club’s registrations?",
-				"Which TV series had a dog named K9 who was also a robot?",
-				"What is the smallest dog breed used in hunting?"
-				];
-var choice = [
-				["Stay", "Beg", "Sit", "Dance"],
-				["36", "22", "9", "16"],
-				["Golden Retriever", "Beagle", "German Shepherd", "Labrador"],
-				["Full House", "Star Trek", "Doctor Who", "Law & Order"],
-				["Chihuahua", "Miniature dachshund", "Toy poodle", "Smooth fox terrier" ]
-			]
-var correctAns = ["Sit", "9", "Labrador", "Doctor Who", "Miniature dachshund"]	
+var questions = [
+	{
+		question: "What is the most common training command taught to dogs?",
+		choice:  ["Stay", "Beg", "Sit", "Dance"],
+		correctAns: "Sit"
+	}, {
+		question: "Puppies are delivered how many weeks after conception?",
+		choice: ["36", "22", "9", "16"],
+		correctAns: "9"
+	}, {
+		question: "What is the most popular dog breed, according to the American Kennel Club’s registrations?",
+		choice: ["Golden Retriever", "Beagle", "German Shepherd", "Labrador"],
+		correctAns:  "Labrador"
+	}, {
+		question: "Which TV series had a dog named K9 who was also a robot?",
+		choice: ["Full House", "Star Trek", "Doctor Who", "Law & Order"],
+		correctAns: "Doctor Who"
+	}, {
+		question: "What is the smallest dog breed used in hunting?",
+		choice: ["Chihuahua", "Miniature dachshund", "Toy poodle", "Smooth fox terrier" ],
+		correctAns: "Miniature dachshund"
+	}
+]
+
 var intervalId;
 var counter = 15;	
 var qcount = 0;	
@@ -55,11 +65,11 @@ function stop(){
 }
 
 function loadQuestion(){
-	queAndCho = "<p>" + question[qcount] + "</p>" +
-				"<p class ='choice'>" + choice[qcount][0] +"</p>" +
-				"<p class ='choice'>" + choice[qcount][1] +"</p>" + 
-				"<p class ='choice'>" + choice[qcount][2] +"</p>" +
-				"<p class ='choice'>" + choice[qcount][3] +"</p>"  
+	queAndCho = "<p>" + questions[qcount].question + "</p>" +
+				"<p class ='choice'>" + questions[qcount].choice[0] +"</p>" +
+				"<p class ='choice'>" + questions[qcount].choice[1] +"</p>" + 
+				"<p class ='choice'>" + questions[qcount].choice[2] +"</p>" +
+				"<p class ='choice'>" + questions[qcount].choice[3] +"</p>"  
 	$("#clock").html("15");			
 	$("#display").html(queAndCho);
 	$(".choice").on("click", function(){
@@ -69,7 +79,7 @@ function loadQuestion(){
 }	
 
 function checkAnswer(ans){
-	if (correctAns.indexOf(ans) > -1){
+	if (ans == questions[qcount].correctAns){
 		//stop timer
 		stop();
 		//correct answer then call 
@@ -86,7 +96,7 @@ function checkAnswer(ans){
 
 function nextQuestion(){
 	qcount++
-	if(qcount < question.length){
+	if(qcount < questions.length){
 	loadQuestion();
 	run();
 	} else {
@@ -98,7 +108,7 @@ function nextQuestion(){
 function losefunc(){
 	stop();
 		//you wrong and show correct answer
-		$("#display").html("<img src = 'assets/images/wrong.jpg'>" + "</br><p>" + "The correct answer is: " + correctAns[qcount] + "</p>");
+		$("#display").html("<img src = 'assets/images/wrong.jpg'>" + "</br><p>" + "The correct answer is: " + questions[qcount].correctAns + "</p>");
 		//settimeout to the next question
 		setTimeout(nextQuestion, 2000);
 }
@@ -118,6 +128,10 @@ $("#tryAgain").on("click", function(){
 }
 //reset game to play again
 function reset(){
+	//change question order
+	questions.sort(function(){
+            return 0.5 - Math.random();
+          });
 	counter = 15;
 	qcount = 0;
 	choicePicked ="";
