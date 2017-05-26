@@ -1,40 +1,33 @@
 body {
-	  background-color: #CFA76E; 
-	
+	  background-color: black;
 }
-h1, h2{
+h1, h2 {
 	color: #783201;
-	
 	text-align: center;
 }
+
  .jumbotron{
  	margin-top: 2em;
-	background-image: url(../images/wallpaper.jpg);
-	opacity: 0.7;
+	background-color: green;
 	text-align: center;
 	font-family: 'Architects Daughter', cursive;
 }
 p {
 	margin-top: 1em;
-	color: #783201;
+	color: white;
 	font-size: 2em;
 	font-weight: bold;
 }
-#choice:hover{
-	background-color: pink;
+.choice:hover{
+	background-color: magenta;
 }
-#choice{
-
-	margin-top: 0;
-
-	
-	border-radius: 15%;
+.choice{
+	margin: 0 auto;
+	width: 30%;
+	border-radius: 20px;
 	text-align: center;
 }
 
-/* #displayPage, #resultPage{
-	display: none;
-}  */
-#done, #letsGo {
+ #letsGo {
 	margin-top: 2em;
-}
+} 

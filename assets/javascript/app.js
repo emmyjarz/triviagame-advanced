@@ -60,7 +60,7 @@ function loadQuestion(){
 				"<p class ='choice'>" + choice[qcount][1] +"</p>" + 
 				"<p class ='choice'>" + choice[qcount][2] +"</p>" +
 				"<p class ='choice'>" + choice[qcount][3] +"</p>"  
-	$("#clock").html(counter);			
+	$("#clock").html("15");			
 	$("#display").html(queAndCho);
 	$(".choice").on("click", function(){
  	choicePicked = $(this).text();
@@ -108,7 +108,7 @@ function finalResult(){
 	$("#display").html("<p>" + "Correct Answers: " + win + "</p>" +
 					   "<p>" + "Incorrect Answers: " + lose + "</p>" +
 						"<p>" + "Unanswered: " + unAns + "</p>" +
-						"<button id = 'tryAgain' class = 'btn btn-lg btn-warning'>" + "Try Again" + "</button>");
+						"<button id = 'tryAgain' class = 'btn btn-lg btn-danger'>" + "Try Again" + "</button>");
 
 $("#tryAgain").on("click", function(){
 	reset();
