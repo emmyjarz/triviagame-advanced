@@ -1,14 +1,16 @@
 body {
-	  background-color: black;
+	   background-color: black; 
+	  /* background-image: url(../images/wallpaper.jpg); */
 }
 h1, h2 {
 	color: #783201;
 	text-align: center;
+	font-weight: bold;
 }
 
  .jumbotron{
  	margin-top: 2em;
-	background-color: green;
+	background-color: #01321F;
 	text-align: center;
 	font-family: 'Architects Daughter', cursive;
 }

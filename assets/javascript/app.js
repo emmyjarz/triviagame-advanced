@@ -1,7 +1,7 @@
 var questions = [
 	{
 		question: "What is the most common training command taught to dogs?",
-		choice:  ["Stay", "Beg", "Sit", "Dance"],
+		choice:  ["Stay", "Sit", "Beg", "Dance"],
 		correctAns: "Sit"
 	}, {
 		question: "Puppies are delivered how many weeks after conception?",
@@ -19,6 +19,14 @@ var questions = [
 		question: "What is the smallest dog breed used in hunting?",
 		choice: ["Chihuahua", "Miniature dachshund", "Toy poodle", "Smooth fox terrier" ],
 		correctAns: "Miniature dachshund"
+	}, {
+		question: "Normal adult dogs have how many teeth?",
+		choice: ["42", "38", "24", "32" ],
+		correctAns: "42"
+	}, {
+		question: "Which dog yodels instead of barks?",
+		choice: ["Komondor", "Otterhound", "Basenji", "Basset hound"],
+		correctAns: "Basenji"
 	}
 ]
 
