@@ -1,6 +1,6 @@
 body {
-	   background-color: black; 
-	  /* background-image: url(../images/wallpaper.jpg); */
+	   /*background-color: black; */
+	  background-image: url(../images/wallpaper1.jpg);
 }
 h1, h2 {
 	color: #783201;
@@ -10,15 +10,15 @@ h1, h2 {
 
  .jumbotron{
  	margin-top: 2em;
-	background-color: #01321F;
+	background-color: #A5CB74;
 	text-align: center;
 	font-family: 'Architects Daughter', cursive;
 }
 p {
 	margin-top: 1em;
-	color: white;
+	color: brown;
 	font-size: 2em;
-	font-weight: bold;
+	font-weight: bolder;
 }
 .choice:hover{
 	background-color: magenta;
@@ -32,4 +32,4 @@ p {
 
  #letsGo {
 	margin-top: 2em;
-} 
+}
