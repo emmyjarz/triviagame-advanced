@@ -1,5 +1,5 @@
 # triviagame-advanced
 
-HTML, CSS, javascript and jQuery
+HTML, bootstrap, javascript and jQuery
 
 https://emmyjarz.github.io/triviagame-advanced/
