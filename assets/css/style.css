@@ -1,6 +1,7 @@
 body {
 	   /*background-color: black; */
-	  background-image: url(../images/wallpaper1.jpg);
+	  /* background-image: url(../images/wallpaper1.jpg); */
+	  background-image: url("https://st.hzcdn.com/simgs/8ec15333065f1c8b_4-5777/transitional-wallpaper.jpg");
 }
 h1, h2 {
 	color: #783201;

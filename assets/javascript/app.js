@@ -1,7 +1,7 @@
 var questions = [
 	{
 		question: "What is the most common training command taught to dogs?",
-		choice:  ["Stay", "Sit", "Beg", "Dance"],
+		choice: ["Stay", "Sit", "Beg", "Dance"],
 		correctAns: "Sit"
 	}, {
 		question: "Puppies are delivered how many weeks after conception?",
@@ -10,18 +10,18 @@ var questions = [
 	}, {
 		question: "What is the most popular dog breed, according to the American Kennel Club’s registrations?",
 		choice: ["Golden Retriever", "Beagle", "German Shepherd", "Labrador"],
-		correctAns:  "Labrador"
+		correctAns: "Labrador"
 	}, {
 		question: "Which TV series had a dog named K9 who was also a robot?",
 		choice: ["Full House", "Star Trek", "Doctor Who", "Law & Order"],
 		correctAns: "Doctor Who"
 	}, {
 		question: "What is the smallest dog breed used in hunting?",
-		choice: ["Chihuahua", "Miniature dachshund", "Toy poodle", "Smooth fox terrier" ],
+		choice: ["Chihuahua", "Miniature dachshund", "Toy poodle", "Smooth fox terrier"],
 		correctAns: "Miniature dachshund"
 	}, {
 		question: "Normal adult dogs have how many teeth?",
-		choice: ["42", "38", "24", "32" ],
+		choice: ["42", "38", "24", "32"],
 		correctAns: "42"
 	}, {
 		question: "Which dog yodels instead of barks?",
@@ -31,67 +31,67 @@ var questions = [
 ]
 
 var intervalId;
-var counter = 15;	
-var qcount = 0;	
-var choicePicked ="";
+var counter = 15;
+var qcount = 0;
+var choicePicked = "";
 var win = 0;
 var lose = 0;
 var unAns = 0;
 
 
 //startGame
-$("#letsGo").on("click", function(){
+$("#letsGo").on("click", function () {
 	//letsGo button disappear
 	$("#letsGo").css("display", "none");
 	//question to load
 	loadQuestion();
 	//call clock to show
 	run();
-	
+
 });
 
 
 //timer
-function run(){
+function run() {
 	counter = 15;
-	 intervalId = setInterval(decrement, 1000);
+	intervalId = setInterval(decrement, 1000);
 }
 //timer
-function decrement(){
+function decrement() {
 	counter--;
 	$("#clock").html(counter);
-	if(counter === 0){
+	if (counter === 0) {
 		//display timeout and show correct answer
 		losefunc();
 		unAns++;
 	}
 }
 //timer
-function stop(){
+function stop() {
 	clearInterval(intervalId);
 	intervalId = 0;
 }
 
-function loadQuestion(){
+function loadQuestion() {
 	queAndCho = "<p>" + questions[qcount].question + "</p>" +
-				"<p class ='choice'>" + questions[qcount].choice[0] +"</p>" +
-				"<p class ='choice'>" + questions[qcount].choice[1] +"</p>" + 
-				"<p class ='choice'>" + questions[qcount].choice[2] +"</p>" +
-				"<p class ='choice'>" + questions[qcount].choice[3] +"</p>"  
-	$("#clock").html("15");			
+		"<p class ='choice'>" + questions[qcount].choice[0] + "</p>" +
+		"<p class ='choice'>" + questions[qcount].choice[1] + "</p>" +
+		"<p class ='choice'>" + questions[qcount].choice[2] + "</p>" +
+		"<p class ='choice'>" + questions[qcount].choice[3] + "</p>"
+	$("#clock").html("15");
 	$("#display").html(queAndCho);
-	$(".choice").on("click", function(){
- 	choicePicked = $(this).text();
-  	checkAnswer(choicePicked);
-});
-}	
+	$(".choice").on("click", function () {
+		choicePicked = $(this).text();
+		checkAnswer(choicePicked);
+	});
+}
 
-function checkAnswer(ans){
-	if (ans == questions[qcount].correctAns){
+function checkAnswer(ans) {
+	if (ans == questions[qcount].correctAns) {
 		//stop timer
 		stop();
 		//correct answer then call 
-		$("#display").html("<img src='assets/images/gotit.jpg'>")
+		$("#display").html("<img src='http://www.itchmo.com/wp-content/uploads/2007/12/loldog-funny-pictures-you-got-it-babe.jpg'>")
 		win++
 		//settimeout to the next question
 		setTimeout(nextQuestion, 2000);
@@ -102,47 +102,47 @@ function checkAnswer(ans){
 
 }
 
-function nextQuestion(){
+function nextQuestion() {
 	qcount++
-	if(qcount < questions.length){
-	loadQuestion();
-	run();
+	if (qcount < questions.length) {
+		loadQuestion();
+		run();
 	} else {
 		//no more question then call the result
 		finalResult();
 	}
 }
 
-function losefunc(){
+function losefunc() {
 	stop();
-		//you wrong and show correct answer
-		$("#display").html("<img src = 'assets/images/wrong.jpg'>" + "</br><p>" + "The correct answer is: " + questions[qcount].correctAns + "</p>");
-		//settimeout to the next question
-		setTimeout(nextQuestion, 2000);
+	//you wrong and show correct answer
+	$("#display").html("<img src = 'http://images.clipartpanda.com/wrong-clipart-nTBXxd5zc.png'>" + "</br><p>" + "The correct answer is: " + questions[qcount].correctAns + "</p>");
+	//settimeout to the next question
+	setTimeout(nextQuestion, 2000);
 }
 
 //show the result in the last page
-function finalResult(){
+function finalResult() {
 	$("#display").html("<p>" + "Correct Answers: " + win + "</p>" +
-					   "<p>" + "Incorrect Answers: " + lose + "</p>" +
-						"<p>" + "Unanswered: " + unAns + "</p>" +
-						"<button id = 'tryAgain' class = 'btn btn-lg btn-danger'>" + "Try Again" + "</button>");
+		"<p>" + "Incorrect Answers: " + lose + "</p>" +
+		"<p>" + "Unanswered: " + unAns + "</p>" +
+		"<button id = 'tryAgain' class = 'btn btn-lg btn-danger'>" + "Try Again" + "</button>");
 
-$("#tryAgain").on("click", function(){
-	reset();
-	loadQuestion();
-	run();
-});
+	$("#tryAgain").on("click", function () {
+		reset();
+		loadQuestion();
+		run();
+	});
 }
 //reset game to play again
-function reset(){
+function reset() {
 	//change question order
-	questions.sort(function(){
-            return 0.5 - Math.random();
-          });
+	questions.sort(function () {
+		return 0.5 - Math.random();
+	});
 	counter = 15;
 	qcount = 0;
-	choicePicked ="";
+	choicePicked = "";
 	win = 0;
 	lose = 0;
 	unAns = 0;
